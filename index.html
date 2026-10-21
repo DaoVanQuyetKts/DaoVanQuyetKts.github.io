@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đào Văn Quyết · NEXLINK</title>
+<meta name="description" content="Đào Văn Quyết, kiến trúc sư, hơn 100 công trình bar và karaoke, người sáng lập NEXLINK: nền tảng công nghệ cho ngành Nightlife.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080D;--bg-2:#0C0E16;--panel-solid:#10131D;
+  --text:#E8EEF9;--text-2:#A6B0C6;--text-3:#6F7A93;
+  --line:rgba(125,170,255,.14);--line-2:rgba(125,170,255,.26);
+  --cyan:#22D3EE;--magenta:#F472D0;--violet:#A78BFA;--lime:#A3E635;--amber:#FBBF24;
+  --on-primary:#04121A;
+  --g-primary:linear-gradient(135deg,#22D3EE,#3B82F6 60%,#A855F7);
+  --g-border:linear-gradient(135deg,#22D3EE,#F472D0);
+  --g-glass:linear-gradient(rgba(22,27,42,.74),rgba(12,15,25,.7));
+  --shadow-card:inset 0 1px 0 rgba(255,255,255,.04),0 10px 30px rgba(0,0,0,.35);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --f-head:'Space Grotesk','Be Vietnam Pro',system-ui,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);font:400 15px/1.6 var(--f-body);
+  background-image:radial-gradient(rgba(125,170,255,.08) 1px,transparent 1px),
+    radial-gradient(60% 40% at 80% 0%,rgba(167,139,250,.14),transparent 70%);
+  background-size:12px 12px,auto;background-attachment:fixed;
+}
+a{color:var(--cyan);text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.kicker{font:400 12px/1.5 var(--f-mono);letter-spacing:.04em;color:var(--text-3);margin-bottom:8px}
+h1,h2,h3{font-family:var(--f-head);letter-spacing:-.01em;line-height:1.15}
+h1{font-size:clamp(32px,6vw,52px);font-weight:700}
+h2{font-size:clamp(24px,4vw,30px);font-weight:700;margin-bottom:24px}
+h3{font-size:17px;font-weight:600}
+section{padding:56px 0}
+.grad-text{background:var(--g-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+header{position:sticky;top:0;z-index:10;background:rgba(7,8,13,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:700 16px var(--f-head);letter-spacing:.14em;color:var(--text)}
+nav{display:flex;gap:20px}
+nav a{color:var(--text-2);font-size:13.5px;font-weight:600}
+nav a:hover{color:var(--cyan)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:10px;font:600 14px var(--f-body);cursor:pointer;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.btn-primary{background:var(--g-primary);color:var(--on-primary);box-shadow:0 4px 18px rgba(34,211,238,.25)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(34,211,238,.35),0 0 22px rgba(34,211,238,.3)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.card{background:var(--g-glass),var(--panel-solid);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow-card);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);transition:box-shadow .22s var(--ease),border-color .22s var(--ease)}
+.card:hover{border-color:rgba(34,211,238,.35);box-shadow:var(--shadow-card),0 0 22px rgba(34,211,238,.12)}
+.card.hl{border:1px solid transparent;background:linear-gradient(#10131D,#0C0E16) padding-box,var(--g-border) border-box}
+.card p{color:var(--text-2);font-size:14px;margin-top:8px}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;font:600 11.5px var(--f-body);border:1px solid;margin-bottom:12px}
+.p-lime{background:rgba(163,230,53,.14);border-color:rgba(163,230,53,.4);color:#D4F58C}
+.p-amber{background:rgba(251,191,36,.14);border-color:rgba(251,191,36,.45);color:#FDE68A}
+.p-violet{background:rgba(167,139,250,.14);border-color:rgba(167,139,250,.45);color:#D4C8FF}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+/* project photos */
+.ph{margin-top:14px;display:none}
+.ph.has{display:block}
+.ph img{width:100%;max-height:340px;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block}
+.ph-tools{display:none;gap:8px;flex-wrap:wrap;margin-top:10px}
+body.edit .ph{display:block}
+body.edit .ph-tools{display:flex}
+body.edit .ph:not(.has) .empty{display:grid}
+.ph .empty{display:none;place-items:center;height:120px;border:1px dashed var(--line-2);border-radius:12px;color:var(--text-3);font:400 12px var(--f-mono)}
+.ph.has .empty{display:none!important}
+.btn-sm{height:32px;padding:0 12px;font-size:12.5px;border-radius:8px}
+.edit-bar{display:none;position:sticky;top:60px;z-index:9;background:rgba(244,114,208,.12);border-bottom:1px solid rgba(244,114,208,.45);color:#FBCFEF;font:400 12px var(--f-mono);padding:8px 16px;text-align:center}
+body.edit .edit-bar{display:block}
+.qr{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin-top:14px;padding:10px 10px 8px;background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(34,211,238,.35),0 0 22px rgba(34,211,238,.18)}
+.qr img{display:block;width:148px;height:148px}
+.qr span{font:600 12px var(--f-body);color:#04121A}
+.me{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.me img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid transparent;background:linear-gradient(#10131D,#10131D) padding-box,var(--g-border) border-box}
+.me b{display:block;font:600 15px var(--f-head)}
+.me span{color:var(--text-3);font-size:12.5px}
+
+/* hero */
+.hero{padding:72px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero p.lead{color:var(--text-2);font-size:17px;margin:16px 0 24px;max-width:540px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.avatar{aspect-ratio:1;max-width:340px;width:100%;margin:0 auto;border-radius:20px;display:grid;place-items:center;
+  background:linear-gradient(#10131D,#0C0E16) padding-box,var(--g-border) border-box;border:1px solid transparent;
+  box-shadow:0 0 0 1px rgba(34,211,238,.2),0 0 40px rgba(34,211,238,.15);font:700 88px var(--f-mono);color:var(--cyan)}
+.avatar{overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;border-radius:19px;display:block}
+
+.kpi .num{font:700 30px/1.1 var(--f-mono)}
+.kpi .lbl{font:400 11.5px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--text-3);margin-top:8px}
+.c-cyan{color:var(--cyan)}.c-amber{color:var(--amber)}.c-lime{color:var(--lime)}.c-violet{color:var(--violet)}
+
+.meta{font:400 12px var(--f-mono);color:var(--text-3);margin-top:12px}
+ul.clean{list-style:none;padding:0}
+ul.clean li{color:var(--text-2);font-size:14px;padding:6px 0 6px 18px;position:relative}
+ul.clean li::before{content:"//";position:absolute;left:0;font:400 11px var(--f-mono);color:var(--cyan);top:9px}
+.timeline{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:72px 1fr;gap:16px;align-items:start}
+.row .yr{font:700 14px var(--f-mono);color:var(--cyan);padding-top:2px}
+.row h3{font-size:16px}
+.row p{color:var(--text-2);font-size:13.5px;margin-top:4px}
+
+.contact .big{font:700 clamp(20px,3.5vw,26px) var(--f-mono)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--text-3);font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+@media (max-width:860px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr}
+  .avatar{max-width:240px;order:-1}
+  nav{display:none}
+}
+@media (max-width:520px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:4px}
+  .hero{padding-top:40px}
+  .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">NEXLINK</a>
+    <nav aria-label="Điều hướng">
+      <a href="#ve-toi">Về tôi</a>
+      <a href="#du-an">Dự án</a>
+      <a href="#nexlink">NEXLINK</a>
+      <a href="#hoc-van">Học vấn</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <a class="btn btn-primary" style="height:36px;padding:0 14px;font-size:13.5px" href="#lien-he">Đặt lịch tư vấn</a>
+  </div>
+</header>
+<div class="edit-bar">Chế độ cập nhật ảnh: bấm “Thêm ảnh” ở mỗi dự án. Ảnh lưu trong trình duyệt này; bấm “Tải file” rồi chép vào anh/du-an/ để mọi người cùng thấy.</div>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">// ceo.profile</p>
+      <h1>Đào Văn Quyết<br><span class="grad-text">Kiến trúc sư &amp; nhà sáng lập NEXLINK</span></h1>
+      <p class="lead">10 năm (2014–2024) thiết kế và thi công quán bar, karaoke. Nay xây công nghệ vận hành cho ngành Nightlife: đặt phòng, tính tiền, kho hàng và phòng thông minh trong một hệ sinh thái.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#lien-he">Đặt lịch tư vấn</a>
+        <a class="btn btn-ghost" href="#du-an">Xem dự án đã làm</a>
+      </div>
+    </div>
+    <div class="avatar" role="img" aria-label="Ảnh đại diện Đào Văn Quyết">
+      <img src="anh/anh-dai-dien.jpg" alt="Đào Văn Quyết ở sân bay" width="758" height="762">
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:16px">
+  <div class="wrap grid g4">
+    <div class="card kpi"><div class="num c-cyan">100+</div><div class="lbl">Công trình bar &amp; karaoke</div></div>
+    <div class="card kpi"><div class="num c-amber">15–20k m²</div><div class="lbl">Tổng diện tích mặt sàn</div></div>
+    <div class="card kpi"><div class="num c-lime">~100</div><div class="lbl">Nhân sự xưởng &amp; công trình</div></div>
+    <div class="card kpi"><div class="num c-violet">15–20 tỷ</div><div class="lbl">Vốn đầu tư mỗi dự án</div></div>
+  </div>
+</section>
+
+<section id="ve-toi">
+  <div class="wrap">
+    <p class="kicker">// ve.toi</p>
+    <h2>Hiểu từ bản vẽ đến vận hành</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Thiết kế &amp; thi công</h3><p>Kiến trúc sư chuyên mảng giải trí Nightlife. Từ 2014 đến 2024 dẫn dắt công ty thiết kế, thi công với đội ngũ gần 100 người gồm xưởng sản xuất và đội lắp ráp tại công trình.</p></div>
+      <div class="card"><h3>An toàn phòng cháy</h3><p>Cử nhân Phòng cháy chữa cháy và Cứu nạn cứu hộ. Mỗi công trình được thiết kế để vừa đẹp vừa an toàn, điều mà chủ đầu tư quán bar, karaoke, khách sạn cần nhất.</p></div>
+      <div class="card"><h3>Công nghệ vận hành</h3><p>Sáng lập NEXLINK để tự động hóa vận hành, quản lý booking, đội ngũ cộng tác viên và doanh số, giúp ngành Nightlife an toàn, thân thiện và dễ kiểm soát hơn.</p></div>
+    </div>
+    <p class="meta">Sinh ngày 03/07/1990 · TP. Hồ Chí Minh</p>
+    <p style="margin-top:24px;font:600 18px var(--f-head)" class="grad-text">“Cam kết mang đến cho khách hàng sự hài lòng, quan tâm và trân trọng.”</p>
+  </div>
+</section>
+
+<section id="du-an">
+  <div class="wrap">
+    <p class="kicker">// du.an.tieu.bieu</p>
+    <h2>Mỗi quán đều lớn nhất khu vực khi ra đời</h2>
+    <div class="timeline">
+      <div class="card hl row"><div class="yr">2023</div><div data-project="cau-ca"><h3>Quán bar Cậu Cả · Bến Tre</h3><p>Quán bar lớn nhất Bến Tre.</p></div></div>
+      <div class="card row"><div class="yr">2018</div><div data-project="long-chau"><h3>Karaoke Long Châu · Bình Tân, TP.HCM</h3><p>Lớn nhất, đẳng cấp nhất khu vực khi xuất hiện.</p></div></div>
+      <div class="card row"><div class="yr">2017</div><div data-project="diamond-vinh-long"><h3>Quán bar Diamond · Vĩnh Long</h3><p>Lớn nhất, đẳng cấp nhất khu vực khi xuất hiện.</p></div></div>
+      <div class="card row"><div class="yr">2017</div><div data-project="hoa-mi"><h3>Chuỗi karaoke Họa Mi · Tân Phú, TP.HCM</h3><p>Lớn nhất, đẳng cấp nhất khu vực khi xuất hiện.</p></div></div>
+      <div class="card row"><div class="yr">2016</div><div data-project="diamond-long-khanh"><h3>Karaoke Diamond · Long Khánh, Đồng Nai</h3><p>Lớn nhất, đẳng cấp nhất khu vực khi xuất hiện.</p></div></div>
+    </div>
+    <p class="meta">Mỗi cơ sở trên 1.000 m² · vốn đầu tư 15–20 tỷ đồng mỗi dự án.</p>
+  </div>
+</section>
+
+<section id="nexlink">
+  <div class="wrap">
+    <p class="kicker">// nexlink.ecosystem</p>
+    <h2>NEXLINK: hệ sinh thái cho ngành Nightlife</h2>
+    <p style="color:var(--text-2);max-width:640px;margin:-8px 0 24px">Ba nền tảng nối liền nhau để doanh nghiệp bar, karaoke, nhà hàng, khách sạn cao cấp tự động hóa vận hành: booking, doanh số, đội ngũ cộng tác viên.</p>
+    <div class="grid g3">
+      <div class="card hl"><span class="pill p-lime">Chạy thật · 3 cơ sở</span><h3>Blink</h3><p>Nền tảng đặt phòng, đặt dịch vụ. Đã vận hành khoảng 3 tháng tại 3 cơ sở, giúp quản lý booking và tăng doanh thu cho các quán.</p><p class="meta">Ra thị trường 01/01/2027</p></div>
+      <div class="card"><span class="pill p-amber">Chạy thử · 1 cơ sở</span><h3>Max360</h3><p>Phần mềm tính tiền và quản lý kho hàng. Tặng kèm khi dùng Blink trong giai đoạn ra mắt.</p><p class="meta">Kèm Blink từ 01/01/2027</p></div>
+      <div class="card"><span class="pill p-violet">Đang thử nghiệm</span><h3>Singlink</h3><p>Hệ điều hành cho cơ sở karaoke, quán bar, khách sạn: phòng thông minh tương tác được với khách hàng.</p><p class="meta">Dự kiến khoảng 06/2027</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="hoc-van">
+  <div class="wrap grid g2">
+    <div>
+      <p class="kicker">// hoc.van</p>
+      <h2>Học vấn</h2>
+      <div class="grid">
+        <div class="card"><h3>Cử nhân Phòng cháy chữa cháy và Cứu nạn cứu hộ</h3><p>Đại học Phòng cháy chữa cháy (Bộ Công an) · chính quy · tốt nghiệp 2026 · hạng Khá.</p></div>
+        <div class="card"><h3>Kiến trúc sư, ngành Kiến trúc công trình</h3><p>Đại học Kiến trúc Đà Nẵng · chính quy · tốt nghiệp 2014.</p></div>
+      </div>
+    </div>
+    <div>
+      <p class="kicker">// ky.nang</p>
+      <h2>Thế mạnh</h2>
+      <div class="card"><ul class="clean">
+        <li>Thiết kế kiến trúc cho ngành giải trí Nightlife</li>
+        <li>Xây dựng sản phẩm công nghệ</li>
+        <li>Thiết kế an toàn phòng cháy</li>
+      </ul></div>
+      <div class="card" style="margin-top:16px"><h3>Hành trình</h3><ul class="clean" style="margin-top:8px">
+        <li>2014–2024: Chủ sở hữu Công ty TNHH Đào Quyết, thiết kế và thi công bar, karaoke</li>
+        <li>2026: Thành lập CTY TNHH NEXLINK, giữ vai trò giám đốc</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="lien-he" class="contact">
+  <div class="wrap">
+    <p class="kicker">// dat.lich.tu.van</p>
+    <h2>Trò chuyện với tôi</h2>
+    <div class="card hl">
+      <div class="me"><img src="anh/chan-dung.jpg" alt="Đào Văn Quyết" width="64" height="64"><div><b>Đào Văn Quyết</b><span>Giám đốc CTY TNHH NEXLINK</span></div></div>
+      <p style="margin:0 0 20px;font-size:15px">Muốn làm quán mới hoặc đưa công nghệ vào cơ sở đang chạy? Gọi điện hoặc nhắn Zalo để đặt lịch tư vấn.</p>
+      <div class="grid g2" style="margin-bottom:20px">
+        <div><div class="kicker">// dien.thoai</div><a class="big" href="tel:0375588888">0375 588 888</a></div>
+        <div><div class="kicker">// zalo</div><a class="big" href="https://zalo.me/0868689668" rel="noopener">0868 689 668</a>
+          <a class="qr" href="https://zalo.me/0868689668" rel="noopener" aria-label="Mã QR kết nối Zalo của Đào Văn Quyết"><img src="anh/zalo-qr.svg" alt="Mã QR Zalo 0868 689 668" width="148" height="148"><span>Quét mã để kết nối Zalo</span></a></div>
+      </div>
+      <div class="cta" style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn-primary" href="tel:0375588888">Gọi ngay</a>
+        <a class="btn btn-ghost" href="https://zalo.me/0868689668" rel="noopener">Nhắn Zalo</a>
+        <a class="btn btn-ghost" href="mailto:ceo@nexlink.group">ceo@nexlink.group</a>
+      </div>
+      <p class="meta">Văn phòng NEXLINK: 163/12 Nguyễn Văn Khối, Thông Tây Hội, TP. Hồ Chí Minh</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 CTY TNHH NEXLINK</span>
+    <span>Đào Văn Quyết · Giám đốc</span>
+  </div>
+</footer>
+
+<script>
+/* Ảnh dự án: ưu tiên file anh/du-an/<slug>.jpg (mọi người thấy), sau đó ảnh lưu trong trình duyệt này.
+   Bật chế độ cập nhật bằng cách mở trang với #edit ở cuối địa chỉ (ví dụ index.html#edit). */
+(function(){
+  var edit=/(^|[#&?])edit\b/.test(location.hash+location.search);
+  if(edit)document.body.classList.add('edit');
+  var db=null;
+  function open(){return new Promise(function(res){
+    try{var r=indexedDB.open('nexlink-anh',1);
+      r.onupgradeneeded=function(){r.result.createObjectStore('p')};
+      r.onsuccess=function(){db=r.result;res()};r.onerror=function(){res()};
+    }catch(e){res()}})}
+  function get(k){return new Promise(function(res){
+    if(!db)return res(null);
+    try{var q=db.transaction('p').objectStore('p').get(k);q.onsuccess=function(){res(q.result||null)};q.onerror=function(){res(null)}}catch(e){res(null)}})}
+  function put(k,v){return new Promise(function(res){
+    if(!db)return res(false);
+    try{var t=db.transaction('p','readwrite');t.objectStore('p').put(v,k);t.oncomplete=function(){res(true)};t.onerror=function(){res(false)}}catch(e){res(false)}})}
+  function shrink(file){return new Promise(function(res,rej){
+    var img=new Image(),u=URL.createObjectURL(file);
+    img.onload=function(){var m=1600,sc=Math.min(1,m/Math.max(img.width,img.height)),
+      c=document.createElement('canvas');c.width=Math.round(img.width*sc);c.height=Math.round(img.height*sc);
+      c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);
+      c.toBlob(function(b){b?res(b):rej()},'image/jpeg',.85)};
+    img.onerror=rej;img.src=u})}
+  function show(box,src,alt){var im=box.querySelector('img');im.src=src;im.alt=alt;box.classList.add('has')}
+  function build(el){
+    var slug=el.getAttribute('data-project'),name=el.querySelector('h3').textContent;
+    var box=document.createElement('div');box.className='ph';
+    box.innerHTML='<img alt="" loading="lazy"><div class="empty">// chưa có ảnh công trình</div>'+
+      '<div class="ph-tools"><label class="btn btn-ghost btn-sm" style="cursor:pointer">Thêm / đổi ảnh<input type="file" accept="image/*" hidden></label>'+
+      '<button type="button" class="btn btn-ghost btn-sm" data-dl hidden>Tải file</button></div>';
+    el.appendChild(box);
+    var im=box.querySelector('img'),dl=box.querySelector('[data-dl]'),input=box.querySelector('input'),blob=null;
+    im.onerror=function(){im.removeAttribute('src');box.classList.remove('has')};
+    function fromStore(){get(slug).then(function(b){
+      if(!b)return;blob=b;show(box,URL.createObjectURL(b),name);dl.hidden=false})}
+    var probe=new Image();
+    probe.onload=function(){show(box,probe.src,name)};
+    probe.onerror=fromStore;
+    probe.src='anh/du-an/'+slug+'.jpg';
+    input.addEventListener('change',function(){
+      var f=input.files[0];if(!f)return;
+      shrink(f).then(function(b){blob=b;return put(slug,b)}).then(function(ok){
+        show(box,URL.createObjectURL(blob),name);dl.hidden=false;
+        if(!ok)alert('Trình duyệt không lưu được ảnh. Hãy bấm “Tải file” và chép vào anh/du-an/.')
+      }).catch(function(){alert('Không đọc được ảnh này, hãy thử file JPG hoặc PNG.')});
+      input.value=''});
+    dl.addEventListener('click',function(){
+      if(!blob)return;var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=slug+'.jpg';a.click()})
+  }
+  open().then(function(){document.querySelectorAll('[data-project]').forEach(build)});
+})();
+</script>
+</body>
+</html>
